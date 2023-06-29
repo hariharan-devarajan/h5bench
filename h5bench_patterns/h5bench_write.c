@@ -361,7 +361,7 @@ set_select_spaces_strided(bench_params params, hid_t *filespace_out, hid_t *mems
         printf("Stride parameters: STRIDE_SIZE = %lu, BLOCK_SIZE = %lu, BLOCK_CNT = %lu\n", params.stride,
                params.block_size, params.block_cnt);
     }
-    if ((params.stride + params.block_size) * params.block_cnt > params.dim_1) {
+    if (params.block_size * params.block_cnt > params.dim_1) {
         printf("\n\nInvalid hyperslab setting: (STRIDE_SIZE + BLOCK_SIZE) * BLOCK_CNT"
                "must be no greater than the number of available particles per rank(%lu).\n\n",
                params.chunk_dim_1);
