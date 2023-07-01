@@ -309,7 +309,7 @@ class H5bench:
         if 'connector' in vol:
             self.vol_environment['HDF5_VOL_CONNECTOR'] = vol['connector']
 
-            self.logger.info('HDF5 VOL connector: %s', vol['connector'])
+            self.logger.debug('HDF5 VOL connector: %s', vol['connector'])
 
     def disable_vol(self, vol):
         """Disable VOL by setting the connector."""
@@ -356,7 +356,7 @@ class H5bench:
             # Disable any user-defined VOL connectors as we will be handling that
             self.disable_vol(vol)
 
-            if configuration['MODE'] in ['ASYNC', 'LOG']:
+            if configuration['MODE'] in ['ASYNC', 'LOG', 'INTENT']:
                 self.enable_vol(vol)
 
             configuration_file = '{}/{}/h5bench.cfg'.format(self.directory, id)
