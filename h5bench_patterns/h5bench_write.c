@@ -1067,6 +1067,8 @@ main(int argc, char *argv[])
     ALIGN_LEN       = params.align_len;
 
     if (params.file_per_proc) {
+        FILE_OFFSET = 0;
+        TOTAL_PARTICLES = NUM_PARTICLES;
     }
     else {
 #ifdef HAVE_SUBFILING
